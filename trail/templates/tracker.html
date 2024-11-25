@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tracker - SafeMom</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <header class="header">
+        <div class="logo-container">
+            <div class="logo">
+                <a href="{{ url_for('index') }}">
+                    <img src="{{ url_for('static', filename='logo.png') }}" alt="Logo">
+                </a>
+            </div>
+            <h1 class="header-title">
+                <a href="{{ url_for('index') }}" style="color: #fff; text-decoration: none;">SafeMom</a>
+            </h1>
+        </div>
+        <nav class="nav-right">
+            <a href="/information" class="nav-link {% if request.path == '/information' %}active{% endif %}">Information</a>
+            <a href="/tracker" class="nav-link {% if request.path == '/tracker' %}active{% endif %}">Tracker</a>
+            <a href="/prediction" class="nav-link {% if request.path == '/prediction' %}active{% endif %}">Prediction</a>
+            <a href="/profile" class="nav-link {% if request.path == '/profile' %}active{% endif %}">
+                <div class="profile">
+                    <img src="{{ url_for('static', filename='profile.jpg') }}" alt="Profile Picture">
+                </div>
+            </a>
+        </nav>
+    </header>
+
+    <section class="tracker">
+        <h2>Submitted Data</h2>
+        
+        <div class="data-box">
+            {% if data %}
+                <p><strong>Age:</strong> {{ data.age }}</p>
+                <p><strong>Blood Pressure:</strong> {{ data.blood_pressure }}</p>
+                <p><strong>Blood Sugar:</strong> {{ data.blood_sugar }}</p>
+                <p><strong>Weight:</strong> {{ data.weight }}</p>
+                <p><strong>Lifestyle:</strong> {{ data.lifestyle }}</p>
+                <p><strong>Submission Time:</strong> {{ data.timestamp }}</p>
+            {% else %}
+                <p>No data submitted yet.</p>
+            {% endif %}
+        </div>
+    </section>
+
+    <footer class="footer">
+        <p>&copy; 2024 SafeMom. All rights reserved.</p>
+    </footer>
+</body>
+</html>

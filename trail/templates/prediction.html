@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pregnancy Risk Prediction - SafeMom</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body style="background-image: url('https://i.pinimg.com/enabled_lo_mid/736x/4b/a3/be/4ba3be16e98c601262a0e681687ab97b.jpg'); background-size: cover; background-position: center;">
+
+    <header class="header">
+        <div class="logo-container">
+            <div class="logo">
+                <a href="{{ url_for('index') }}">
+                    <img src="{{ url_for('static', filename='logo.png') }}" alt="Logo">
+                </a>
+            </div>
+            <h1 class="header-title">
+                <a href="{{ url_for('index') }}" style="text-decoration: none; color: inherit;">SafeMom</a>
+            </h1>
+        </div>
+        <nav class="nav-right">
+            <a href="{{ url_for('information') }}" class="nav-link {% if request.path == '/information' %}active{% endif %}">Information</a>
+            <a href="{{ url_for('tracker') }}" class="nav-link {% if request.path == '/tracker' %}active{% endif %}">Tracker</a>
+            <a href="{{ url_for('prediction') }}" class="nav-link {% if request.path == '/prediction' %}active{% endif %}">Prediction</a>
+            <a href="{{ url_for('profile') }}" class="nav-link {% if request.path == '/profile' %}active{% endif %}">
+                <div class="profile">
+                    <img src="{{ url_for('static', filename='profile.jpg') }}" alt="Profile Picture">
+                </div>
+            </a>
+        </nav>
+    </header>
+
+    <section class="prediction-section">
+
+        <div class="prediction-container">
+            <h2>Pregnancy Risk Prediction</h2>
+            <form class="prediction-grid">
+                <div class="input-group">
+                    <label for="age">Age</label>
+                    <input type="number" id="age" name="age" placeholder="Enter age">
+                </div>
+                <div class="input-group">
+                    <label for="height">Height (cm)</label>
+                    <input type="number" id="height" name="height" placeholder="Enter height">
+                </div>
+                <div class="input-group">
+                    <label for="weight">Weight (kg)</label>
+                    <input type="number" id="weight" name="weight" placeholder="Enter weight">
+                </div>
+                <div class="input-group">
+                    <label for="temperature">Body Temperature (°F)</label>
+                    <input type="number" id="temperature" name="temperature" placeholder="Enter temperature">
+                </div>
+                <div class="input-group">
+                    <label for="heart-rate">Heart Rate (bpm)</label>
+                    <input type="number" id="heart-rate" name="heart-rate" placeholder="Enter heart rate">
+                </div>
+                <div class="input-group">
+                    <label for="systolic">Systolic Blood Pressure (mm Hg)</label>
+                    <input type="number" id="systolic" name="systolic" placeholder="Enter systolic BP">
+                </div>
+                <div class="input-group">
+                    <label for="diastolic">Diastolic Blood Pressure (mm Hg)</label>
+                    <input type="number" id="diastolic" name="diastolic" placeholder="Enter diastolic BP">
+                </div>
+                <div class="input-group">
+                    <label for="hba1c">Blood Glucose (HbA1c)</label>
+                    <input type="number" id="hba1c" name="hba1c" placeholder="Enter HbA1c">
+                </div>
+                <div class="input-group">
+                    <label for="fasting-glucose">Blood Glucose (Fasting Hour - mg/dL)</label>
+                    <input type="number" id="fasting-glucose" name="fasting-glucose" placeholder="Enter fasting glucose">
+                </div>
+                <div class="form-buttons">
+                    <button type="submit" class="predict-btn">Predict</button>
+                    <button type="reset" class="reset-btn">Reset</button>
+                </div>
+            </form>
+        </div>
+
+        <div class="box">
+            <h2>Why Pregnancy Risk Prediction Matters</h2>
+            <p>Accurately predicting risks during pregnancy allows healthcare providers to offer timely interventions and better care.</p>
+
+            <h2>How We Predict Pregnancy Risk</h2>
+            <p>Using machine learning models and statistical analysis, we process the data you provide to predict potential risks.</p>
+
+            <h2>Next Steps</h2>
+            <p>After getting your risk score, consult your healthcare provider to discuss preventive measures or further testing.</p>
+        </div>
+
+    </section>
+
+    <footer>
+        <p>&copy; 2024 SafeMom. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
